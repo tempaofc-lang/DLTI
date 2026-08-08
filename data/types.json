@@ -254,6 +254,7 @@
   "special": [
     {
       "code": "TEMPA",
+      "role": "hidden",
       "cn": "TEMPA人格",
       "intro": "TEMPA又是什么地理现象？？",
       "desc": "一个苦逼大学生，正在被各种DDL围殴中——哦，我差点没赶上DLTI的DDL。\n欢迎来到DLTI的最深处！\n这里是作者TEMPA。\n───────────────────\n🌍 这个测试的每一道题\n都是在DDL前48小时里写出来的。\n感谢你玩到这里 :)",
@@ -262,6 +263,7 @@
     },
     {
       "code": "PANG",
+      "role": "fallback",
       "category": "保底人格",
       "prototype": "盘古大陆 Pangaea",
       "landmark": null,

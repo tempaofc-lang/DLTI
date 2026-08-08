@@ -89,23 +89,25 @@ export function determineResult(userLevels, dimOrder, standardTypes, specialType
   rankings.sort((a, b) => a.distance - b.distance || b.exact - a.exact || b.similarity - a.similarity)
 
   const best = rankings[0]
-  const drunk = specialTypes.find((t) => t.code === 'DRUNK')
-  const hhhh = specialTypes.find((t) => t.code === 'HHHH')
 
-  // 酒鬼覆盖
-  if (options.isDrunk && drunk) {
+  // 按 role 查找特殊人格，避免硬编码人格代号（data/types.json 中定义）
+  const hidden = specialTypes.find((t) => t.role === 'hidden')
+  const fallback = specialTypes.find((t) => t.role === 'fallback')
+
+  // 隐藏人格覆盖（原「酒鬼」，现由 data 中的 role: "hidden" 类型接管）
+  if (options.isDrunk && hidden) {
     return {
-      primary: { ...drunk, similarity: best.similarity, exact: best.exact },
+      primary: { ...hidden, similarity: best.similarity, exact: best.exact },
       secondary: best,
       rankings,
       mode: 'drunk',
     }
   }
 
-  // 傻乐者兜底
-  if (best.similarity < 60 && hhhh) {
+  // 兜底人格（原「傻乐者」，现由 data 中的 role: "fallback" 类型接管）
+  if (best.similarity < 60 && fallback) {
     return {
-      primary: { ...hhhh, similarity: best.similarity, exact: best.exact },
+      primary: { ...fallback, similarity: best.similarity, exact: best.exact },
       secondary: best,
       rankings,
       mode: 'fallback',
