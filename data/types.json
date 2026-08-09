@@ -257,7 +257,7 @@
       "role": "hidden",
       "cn": "TEMPA人格",
       "intro": "TEMPA又是什么地理现象？？",
-      "desc": "一个苦逼大学生，每天被各种DDL围殴中——DLTI也是踩着DDL写完的。\n ─────────────────── \n 这里是TEMPA。\n玩的开心 :)",
+      "desc": "一个苦逼大学生，每天被各种DDL围殴中——DLTI也是踩着DDL写完的。\\n ─────────────────── \\n 这里是TEMPA。\\n玩的开心 :)",
       "trigger": "Hidden personality activated when ddl_gate_q2 selects 彗星",
       "note": "Overrides normal matching; best normal match shown as secondary"
     },
